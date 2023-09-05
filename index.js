@@ -30,7 +30,12 @@ function animate() {
     ctx.fillRect(0, 0, canvas.width, canvas.height);
     if (world.backgrounds !== undefined) {
         world.backgrounds.forEach(background => {
-            background.draw();
+            background.update();
+        })
+    }
+    if (world.buildings !== undefined) {
+        world.buildings.forEach(building => {
+            building.update();
         })
     }
     if (world.character !== undefined) {

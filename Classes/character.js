@@ -30,6 +30,7 @@ export class Character {
         if (buttons.w.pressed) {
             this.velocity.y = -1;
             this.velocity.x = 0;
+            // console.log("Y Position: " + this.pos.y);
         }
         else if (buttons.s.pressed) {
             this.velocity.y = 1;

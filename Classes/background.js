@@ -1,3 +1,5 @@
+import { world, buttons } from "./../index.js";
+
 const canvas = document.getElementById("game");
 const ctx = canvas.getContext('2d');
 
@@ -16,5 +18,8 @@ export class Background {
     draw() {
         ctx.fillStyle = this.color;
         ctx.fillRect(this.pos.x, this.pos.y, this.width, this.height);
+    }
+    update() {
+        this.draw();
     }
 };
