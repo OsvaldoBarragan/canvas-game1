@@ -1,5 +1,6 @@
 'use strict';
 import * as one from "./Worlds/world1.js";
+import { move } from "./Classes/building.js";
 
 export const canvas = document.getElementById("game");
 const ctx = canvas.getContext("2d");
@@ -28,10 +29,8 @@ function animate() {
     requestAnimationFrame(animate);
     ctx.fillStyle = "black";
     ctx.fillRect(0, 0, canvas.width, canvas.height);
-    if (world.backgrounds !== undefined) {
-        world.backgrounds.forEach(background => {
-            background.update();
-        })
+    if (world.background !== undefined) {
+        world.background.update();
     }
     if (world.buildings !== undefined) {
         world.buildings.forEach(building => {

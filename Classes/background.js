@@ -21,5 +21,18 @@ export class Background {
     }
     update() {
         this.draw();
+
+        if (world.character.pos.y <= this.pos.y) {
+            world.character.pos.y = this.pos.y;
+        }
+        if (world.character.pos.y + world.character.height >= this.pos.y + this.height) {
+            world.character.pos.y = this.pos.y + this.height - world.character.height;
+        }
+        if (world.character.pos.x <= this.pos.x) {
+            world.character.pos.x = this.pos.x;
+        }
+        if (world.character.pos.x + world.character.width>= this.pos.x + this.width) {
+            world.character.pos.x = this.pos.x + this.width - world.character.width;
+        }
     }
 };
