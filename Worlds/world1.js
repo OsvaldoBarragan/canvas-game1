@@ -12,5 +12,7 @@ export const character = new Character({
 });
 
 export const buildings = [
-    new Building({ color: "blue", x: 100, y: 600, width: 200, height: 300 }),
+    new Building({ id: 1, color: "blue", x: 50, y: 600, width: 200, height: 300 }),
+    new Building({ id: 2, color: "blue", x: 500, y: 600, width: 200, height: 300 }),
+    new Building({ id: 3, color: "blue", x: 800, y: 600, width: 100, height: 300 })
 ];

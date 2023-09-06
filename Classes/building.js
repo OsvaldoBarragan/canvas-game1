@@ -2,13 +2,11 @@ import { world, buttons } from "./../index.js";
 
 const canvas = document.getElementById("game");
 const ctx = canvas.getContext('2d');
-export let move = true;
 
 export class Building {
-    constructor({ color, x, y, width, height }) {
-        // The color of the Background
+    constructor({ id, color, x, y, width, height }) {
+        this.id = id;
         this.color = color;
-        // The Position of the Background
         this.pos = {
             x: x,
             y: y
@@ -23,56 +21,57 @@ export class Building {
     update() {
         this.draw();
 
-        if (world.character.pos.y <= this.pos.y + this.height - world.character.height &&
-            world.character.pos.y + world.character.height > this.pos.y + this.height - world.character.height &&
-            world.character.pos.x + world.character.width > this.pos.x &&
-            world.character.pos.x < this.pos.x + this.width) {
-                if (buttons.w.pressed) {
-                    move = false;
+        // Bottom of Building Collision Tracker
+        // Prevents the player from going through the bottom of the building
+        if (buttons.w.pressed) {
+            if (world.character.pos.y <= this.pos.y + this.height - world.character.height &&
+                world.character.pos.y + world.character.height > this.pos.y + this.height - world.character.height &&
+                world.character.pos.x + world.character.width > this.pos.x &&
+                world.character.pos.x < this.pos.x + this.width) {
+                    world.character.move = false;
                     world.character.pos.y = this.pos.y + this.height - world.character.height;
-                }
-                else {
-                    move = true;
-                }
+                    return;
+            }
         }
-        else if (world.character.pos.y + world.character.height >= this.pos.y &&
-            world.character.pos.y < this.pos.y &&
-            world.character.pos.x + world.character.width > this.pos.x &&
-            world.character.pos.x < this.pos.x + this.width) {
-                if (buttons.s.pressed) {
-                    move = false;
+        // Top of Building Collision Tracker
+        // Prevents the player from going through the top of the building
+        else if (buttons.s.pressed) {
+            if (world.character.pos.y + world.character.height >= this.pos.y &&
+                world.character.pos.y < this.pos.y &&
+                world.character.pos.x + world.character.width > this.pos.x &&
+                world.character.pos.x < this.pos.x + this.width) {
+                    world.character.move = false;
                     world.character.pos.y = this.pos.y - world.character.height;
-                }
-                else {
-                    move = true;
-                }
+                    return;
+            }
         }
-        else if (world.character.pos.x <= this.pos.x + this.width &&
-            world.character.pos.x + world.character.width > this.pos.x + this.width &&
-            world.character.pos.y + world.character.height > this.pos.y &&
-            world.character.pos.y < this.pos.y + this.height - world.character.height) {
-                if (buttons.a.pressed) {
-                    move = false;
+        // Right Side of Building Collision Tracker
+        // Prevents the player from going through the right side of the building
+        else if (buttons.a.pressed) {
+            if (world.character.pos.x <= this.pos.x + this.width &&
+                world.character.pos.x + world.character.width > this.pos.x + this.width &&
+                world.character.pos.y + world.character.height > this.pos.y &&
+                world.character.pos.y < this.pos.y + this.height - world.character.height) {
+                    world.character.move = false;
                     world.character.pos.x = this.pos.x + this.width;
-                }
-                else {
-                    move = true;
-                }
+                    return;
+            }
         }
-        else if (world.character.pos.x + world.character.width >= this.pos.x &&
-            world.character.pos.x < this.pos.x &&
-            world.character.pos.y + world.character.height > this.pos.y &&
-            world.character.pos.y < this.pos.y + this.height - world.character.height) {
-                if (buttons.d.pressed) {
-                    move = false;
+        // Left Side of Building Collision Tracker
+        // Prevents the player from going through the left side of the building
+        else if (buttons.d.pressed) {
+            if (world.character.pos.x + world.character.width >= this.pos.x &&
+                world.character.pos.x < this.pos.x &&
+                world.character.pos.y + world.character.height > this.pos.y &&
+                world.character.pos.y < this.pos.y + this.height - world.character.height) {
+                    world.character.move = false;
                     world.character.pos.x = this.pos.x - world.character.width;
-                }
-                else {
-                    move = true;
-                }
+                    return;
+            }
         }
+        // If there is no collision, allow the player to move around freely
         else {
-            move = true;
+            world.character.move = true;
         }
     }
 };
