@@ -39,6 +39,11 @@ function animate() {
             building.update();
         })
     }
+    if (world.doors !== undefined) {
+        world.doors.forEach(door => {
+            door.update();
+        })
+    }
     if (world.character !== undefined) {
         world.character.update();
     }
@@ -112,6 +117,26 @@ addEventListener("keyup", ({ keyCode }) => {
             buttons.d.pressed = false;
             // Character.move is set to true when button is released to prevent player from getting stuck
             world.character.move = true;
+            break;
+    }
+    switch (keyCode) {
+        case 32:
+            buttons.space.pressed = true;
+            // If the player is within a door's vicinity, pressing space will take them to the building's respective area
+            if (world.doors !== undefined) {
+                world.doors.forEach(door => {
+                    const character = world.character;
+                    if (character.pos.x + character.width >= door.pos.x &&
+                        character.pos.x <= door.pos.x + door.width &&
+                        character.pos.y <= door.pos.y + door.height &&
+                        character.pos.y + character.height >= door.pos.y) {
+                            if (buttons.space.pressed) {
+                                world = door.goesTo;
+                            }
+                        }
+                })
+            }
+            buttons.space.pressed = false;
             break;
     }
 });
