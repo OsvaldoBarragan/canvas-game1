@@ -17,6 +17,8 @@ export const character = new Character({
 // To find the door's x position: (building.x + building.width) - (building.width/2) - (door.width/2)
 // To find the door's y position: (building.y + building.height) - door.height
 
+// If inside a building, the door's x and y position is the same as the characters
+// This means the door's x and y position are both 288
 export const doors = [
     new Door({ id: 1, color: "yellow", x: 288, y: 288, width: 64, height: 64, goesTo: world1 }),
 ];
