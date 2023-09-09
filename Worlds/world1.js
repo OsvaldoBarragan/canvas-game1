@@ -2,6 +2,7 @@ import { Background } from "./../Classes/background.js";
 import { Character } from "./../Classes/character.js";
 import { Building } from "./../Classes/building.js";
 import { Door } from "./../Classes/door.js";
+import { home1_image } from "./../image-tracker.js";
 import * as world2 from "./world2.js";
 
 export const name = "World 1";
@@ -22,9 +23,9 @@ export const character = new Character({
 });
 
 export const buildings = [
-    new Building({ id: 1, color: "blue", x: 50, y: 600, width: 320, height: 320 }),
-    new Building({ id: 2, color: "blue", x: 500, y: 600, width: 200, height: 300 }),
-    new Building({ id: 3, color: "blue", x: 800, y: 600, width: 100, height: 300 })
+    new Building({ id: 1, image: home1_image, x: 50, y: 600 }),
+    new Building({ id: 2, image: home1_image, x: 400, y: 100 }),
+    new Building({ id: 3, image: home1_image, x: 800, y: 600 })
 ];
 
 
@@ -36,6 +37,6 @@ export const buildings = [
 // This means the door's x and y position are both 288
 export const doors = [
     new Door({ id: 1, color: "yellow", x: 178, y: 856, width: 64, height: 64, goesTo: world2 }),
-    new Door({ id: 2, color: "yellow", x: 552, y: 836, width: 96, height: 64, goesTo: world2 }),
-    new Door({ id: 3, color: "yellow", x: 818, y: 836, width: 64, height: 64, goesTo: world2 }),
+    new Door({ id: 2, color: "yellow", x: 528, y: 356, width: 64, height: 64, goesTo: world2 }),
+    new Door({ id: 3, color: "yellow", x: 928, y: 856, width: 64, height: 64, goesTo: world2 }),
 ];

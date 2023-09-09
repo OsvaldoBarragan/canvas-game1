@@ -4,19 +4,18 @@ const canvas = document.getElementById("game");
 const ctx = canvas.getContext('2d');
 
 export class Building {
-    constructor({ id, color, x, y, width, height }) {
+    constructor({ id, image, x, y }) {
         this.id = id;
-        this.color = color;
+        this.image = image;
         this.pos = {
             x: x,
             y: y
         }
-        this.width = width;
-        this.height = height;
+        this.width = image.width;
+        this.height = image.height;
     }
     draw() {
-        ctx.fillStyle = this.color;
-        ctx.fillRect(this.pos.x, this.pos.y, this.width, this.height);
+        ctx.drawImage(this.image, this.pos.x, this.pos.y);
     }
     update() {
         this.draw();

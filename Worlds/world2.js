@@ -13,7 +13,7 @@ export const name = "World 2";
 // To find the background's y position: (character.y.pos - background.height) + character.height
 
 export const background = new Background({ 
-    color: "#F0F8FF", x: 224, y: -96, width: 192, height: 448
+    color: "#F0F8FF", x: 128, y: -96, width: 384, height: 448
 });
 
 export const character = new Character({
