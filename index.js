@@ -4,6 +4,9 @@ import * as one from "./Worlds/world1.js";
 export const canvas = document.getElementById("game");
 const ctx = canvas.getContext("2d");
 
+export const infoCanvas = document.getElementById("info");
+const infoCtx = infoCanvas.getContext("2d");
+
 export let world = one;
 
 export const buttons = {
@@ -49,7 +52,32 @@ function animate() {
     }
 };
 
+function animateInfo() {
+    requestAnimationFrame(animateInfo);
+    infoCtx.fillStyle = "white";
+    infoCtx.fillRect(0, 0, infoCanvas.width, infoCanvas.height);
+
+    const info = () => {
+        if (world.doors !== undefined) {
+            world.doors.forEach(door => {
+                const character = world.character;
+                if (character.pos.x + character.width >= door.pos.x &&
+                    character.pos.x <= door.pos.x + door.width &&
+                    character.pos.y <= door.pos.y + door.height &&
+                    character.pos.y + character.height >= door.pos.y) {
+                        infoCtx.font = "20px Georgia";
+                        infoCtx.fillStyle = "black";
+                        infoCtx.fillText("Click (Space) to Enter " + door.goesTo.name, 0, 20);
+                    }
+            })
+        }
+    }
+    info()
+
+}
+
 animate();
+animateInfo();
 
 addEventListener("keydown", ({ keyCode }) => {
     switch (keyCode) {
