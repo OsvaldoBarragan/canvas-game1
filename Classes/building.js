@@ -15,7 +15,12 @@ export class Building {
         this.height = image.height;
     }
     draw() {
-        ctx.drawImage(this.image, this.pos.x, this.pos.y);
+        if (!this.image) {
+            return;
+        }
+        else {
+            ctx.drawImage(this.image, this.pos.x, this.pos.y);
+        }
     }
     update() {
         this.draw();
