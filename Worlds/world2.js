@@ -5,8 +5,15 @@ import * as world1 from "./world1.js";
 
 export const name = "World 2";
 
+// To find positions for the background in each building, follow these calculations.
+// Before looking at the calculations, it's important to know that both x and y positions of character are currently 288.
+// To get the x position of the character: (canvas.width / 2) - (character.width / 2)
+// To get the y position of the character: (canvas.height / 2) - (character.height / 2)
+// To find the background's x position: (canvas.width / 2) - (background.width / 2)
+// To find the background's y position: (character.y.pos - background.height) + character.height
+
 export const background = new Background({ 
-    color: "#F0F8FF", x: 220, y: -248, width: 400, height: 600
+    color: "#F0F8FF", x: 224, y: -96, width: 192, height: 448
 });
 
 export const character = new Character({
