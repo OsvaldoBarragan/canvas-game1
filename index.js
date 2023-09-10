@@ -122,12 +122,6 @@ function animateInfo() {
 animate();
 animateInfo();
 
-if (world.buildings !== undefined) {
-    world.buildings.forEach(building => {
-        console.log(building);
-    })
-}
-
 addEventListener("keydown", ({ keyCode }) => {
     switch (keyCode) {
         case 87: 
