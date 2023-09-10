@@ -1,9 +1,9 @@
 import { Background } from "./../Classes/background.js";
 import { Character } from "./../Classes/character.js";
-import { Building } from "./../Classes/building.js";
+// import { Building } from "./../Classes/building.js";
 import { Door } from "./../Classes/door.js";
 import { home1_image } from "./../image-tracker.js";
-import { doorXPos, doorYPos } from "./../usefulFunctions.js";
+import { doorXPos, doorYPos, drawBuildings } from "./../usefulFunctions.js";
 import * as world2 from "./world2.js";
 
 export const name = "World 1";
@@ -24,11 +24,11 @@ export const character = new Character({
 });
 
 export const buildings = [
-    new Building({ id: 1, image: home1_image, x: 0, y: 0 }),
-    new Building({ id: 2, image: home1_image, x: 384, y: 0 }),
-    new Building({ id: 3, image: home1_image, x: 768, y: 0 }),
-    new Building({ id: 4, image: home1_image, x: 1152, y: 0 }),
 ];
+
+// If there is a certain pattern you are going for when placing buildings, you can use the drawBuildings function
+// Here, you choose the array you will be pushing the buildings to, how many rows and columns it will use, the separation in width and height, and the image of the building
+drawBuildings(buildings, 4,1, 64, 64, home1_image);
 
 
 // To find positions for the doors on each building, follow these calculations. It works 100% of the time!
