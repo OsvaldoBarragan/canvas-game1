@@ -10,3 +10,4 @@ The controls on desktop are stated below:
 - (Space) is to go through door
 
 Whenever you are close to the door (some part of the character is inside of the door), you can press (Space) to go inside. Otherwise, (Space) will not do anything.
+Warning: There are still bugs that I am working on to fix. For example, the first time you load the page, the character might go through the different objects, such as the buildings. If that's the case, restart the page and this bug should be fixed.
