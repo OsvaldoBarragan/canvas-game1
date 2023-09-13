@@ -72,8 +72,14 @@ function animate() {
     // Load the objects from the world here
     // Before it loads, it checks if any of these class objects are missing
     // If a class is moving, it skips over it
+
     if (world.background !== undefined) {
         world.background.update();
+    }
+    if (world.tiles !== undefined) {
+        world.tiles.forEach(tile => {
+            tile.update();
+        })
     }
     if (world.buildings !== undefined) {
         world.buildings.forEach(building => {

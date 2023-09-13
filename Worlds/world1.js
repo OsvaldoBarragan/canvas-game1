@@ -1,8 +1,9 @@
 import { Background } from "./../Classes/background.js";
 import { Character } from "./../Classes/character.js";
-// import { Building } from "./../Classes/building.js";
+import { Building } from "./../Classes/building.js";
 import { Door } from "./../Classes/door.js";
-import { home1_image } from "./../image-tracker.js";
+import { Tile } from "./../Classes/tile.js";
+import { home1 } from "./../image-tracker.js";
 import { doorXPos, doorYPos, drawBuildings } from "./../usefulFunctions.js";
 import * as world2 from "./world2.js";
 
@@ -19,6 +20,12 @@ export const background = new Background({
     color: "#F0F8FF", x: 0, y: 0, width: 1472, height: 1472
 });
 
+export const tiles = [
+    new Tile({ type: "grass", number: 1, x: 0, y: 0, width: 500, height: 500 }),
+    new Tile({ type: "grass", number: 2, x: 500, y: 0, width: 500, height: 500 }),
+    new Tile({ type: "grass", number: 3, x: 1000, y: 0, width: 472, height: 500 }),
+]
+
 export const character = new Character({
     name: "Box", width: 64, height: 64, color: "red"
 });
@@ -28,7 +35,7 @@ export const buildings = [
 
 // If there is a certain pattern you are going for when placing buildings, you can use the drawBuildings function
 // Here, you choose the array you will be pushing the buildings to, how many rows and columns it will use, the separation in width and height, and the image of the building
-drawBuildings(buildings, 4,1, 64, 64, home1_image);
+drawBuildings(buildings, 4,1, 64, 64, home1);
 
 
 // To find positions for the doors on each building, follow these calculations. It works 100% of the time!
@@ -39,8 +46,8 @@ drawBuildings(buildings, 4,1, 64, 64, home1_image);
 // If inside a building, the door's x and y position is the same as the characters
 // This means the door's x and y position are both 288
 export const doors = [
-    new Door({ id: 1, color: "yellow", x: doorXPos(0, home1_image.width, 64), y: doorYPos(0, home1_image.height, 64), width: 64, height: 64, goesTo: world2 }),
-    new Door({ id: 2, color: "yellow", x: doorXPos(384, home1_image.width, 64), y: doorYPos(0, home1_image.height, 64), width: 64, height: 64, goesTo: world2 }),
-    new Door({ id: 3, color: "yellow", x: doorXPos(768, home1_image.width, 64), y: doorYPos(0, home1_image.height, 64), width: 64, height: 64, goesTo: world2 }),
-    new Door({ id: 4, color: "yellow", x: doorXPos(1152, home1_image.width, 64), y: doorYPos(0, home1_image.height, 64), width: 64, height: 64, goesTo: world2 }),
+    new Door({ id: 1, color: "yellow", x: doorXPos(0, home1.width, 64), y: doorYPos(0, home1.height, 64), width: 64, height: 64, goesTo: world2 }),
+    new Door({ id: 2, color: "yellow", x: doorXPos(384, home1.width, 64), y: doorYPos(0, home1.height, 64), width: 64, height: 64, goesTo: world2 }),
+    new Door({ id: 3, color: "yellow", x: doorXPos(768, home1.width, 64), y: doorYPos(0, home1.height, 64), width: 64, height: 64, goesTo: world2 }),
+    new Door({ id: 4, color: "yellow", x: doorXPos(1152, home1.width, 64), y: doorYPos(0, home1.height, 64), width: 64, height: 64, goesTo: world2 }),
 ];

@@ -25,6 +25,11 @@ export class Character {
         if (buttons.w.pressed && this.move) {
             // Prevents everything from moving if player collides with the top of the background         
             if (this.pos.y <= world.background.pos.y) {
+                if (world.tiles !== undefined) {
+                    world.tiles.forEach(tile => {
+                        tile.pos.y += 0;
+                    })
+                }
                 if (world.buildings !== undefined) {
                     world.buildings.forEach(building => {
                         building.pos.y += 0;
@@ -40,6 +45,11 @@ export class Character {
             }
             // Moves everything down
             else {
+                if (world.tiles !== undefined) {
+                    world.tiles.forEach(tile => {
+                        tile.pos.y += 1;
+                    })
+                }
                 if (world.buildings !== undefined) {
                     world.buildings.forEach(building => {
                         building.pos.y += 1;
@@ -56,6 +66,11 @@ export class Character {
         else if (buttons.s.pressed && this.move) {
             // Prevents everything from moving if player collides with the bottom of the background
             if (this.pos.y + this.height >= world.background.pos.y + world.background.height) {
+                if (world.tiles !== undefined) {
+                    world.tiles.forEach(tile => {
+                        tile.pos.y -= 0;
+                    })
+                }
                 if (world.buildings !== undefined) {
                     world.buildings.forEach(building => {
                         building.pos.y -= 0;
@@ -71,6 +86,11 @@ export class Character {
             }
             // Moves everything up
             else {
+                if (world.tiles !== undefined) {
+                    world.tiles.forEach(tile => {
+                        tile.pos.y -= 1;
+                    })
+                }
                 if (world.buildings !== undefined) {
                     world.buildings.forEach(building => {
                         building.pos.y -= 1;
@@ -87,6 +107,11 @@ export class Character {
         else if (buttons.a.pressed && this.move) {
             // Prevents everything from moving if player collides with the left side of the background
             if (this.pos.x <= world.background.pos.x) {
+                if (world.tiles !== undefined) {
+                    world.tiles.forEach(tile => {
+                        tile.pos.x += 0;
+                    })
+                }
                 if (world.buildings !== undefined) {
                     world.buildings.forEach(building => {
                         building.pos.x += 0;
@@ -102,6 +127,11 @@ export class Character {
             }
             // Moves everything to the right
             else {
+                if (world.tiles !== undefined) {
+                    world.tiles.forEach(tile => {
+                        tile.pos.x += 1;
+                    })
+                }
                 if (world.buildings !== undefined) {
                     world.buildings.forEach(building => {
                         building.pos.x += 1;
@@ -118,6 +148,11 @@ export class Character {
         else if (buttons.d.pressed && this.move) {
             // Prevents everything from moving if player collides with the right side of the background
             if (this.pos.x + this.width >= world.background.pos.x + world.background.width) {
+                if (world.tiles !== undefined) {
+                    world.tiles.forEach(tile => {
+                        tile.pos.x -= 0;
+                    })
+                }
                 if (world.buildings !== undefined) {
                     world.buildings.forEach(building => {
                         building.pos.x -= 0;
@@ -133,6 +168,11 @@ export class Character {
             }
             // Moves everything to the left
             else {
+                if (world.tiles !== undefined) {
+                    world.tiles.forEach(tile => {
+                        tile.pos.x -= 1;
+                    })
+                }
                 if (world.buildings !== undefined) {
                     world.buildings.forEach(building => {
                         building.pos.x -= 1;
