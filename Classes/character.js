@@ -14,7 +14,7 @@ export class Character {
         }
         this.color = color;
         this.move = true;
-        this.speed = 3;
+        this.speed = 1;
     }
     draw() {
         ctx.fillStyle = this.color;
