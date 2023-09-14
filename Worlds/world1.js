@@ -21,33 +21,32 @@ export const background = new Background({
 });
 
 export const tiles = [
-    new Tile({ type: "grass", number: 1, x: 0, y: 0, width: 500, height: 500 }),
-    new Tile({ type: "grass", number: 2, x: 500, y: 0, width: 500, height: 500 }),
-    new Tile({ type: "grass", number: 3, x: 1000, y: 0, width: 472, height: 500 }),
+    new Tile({ type: "grass", number: 1, x: 0, y: 0, rows: 23, cols: 10 }),
 ]
 
 export const character = new Character({
     name: "Box", width: 64, height: 64, color: "red"
 });
 
-export const buildings = [
-];
+// export const buildings = [
+//     new Building({ id: 1, image: home1, x: 0, y: 0}),
+//     new Building({ id: 2, image: home1, x: 384, y: 0 }),
+//     new Building({ id: 3, image: home1, x: 768, y: 0 }),
+//     new Building({ id: 4, image: home1, x: 1152, y: 0 }),
 
-// If there is a certain pattern you are going for when placing buildings, you can use the drawBuildings function
-// Here, you choose the array you will be pushing the buildings to, how many rows and columns it will use, the separation in width and height, and the image of the building
-drawBuildings(buildings, 4,1, 64, 64, home1);
+// ];
 
 
 // To find positions for the doors on each building, follow these calculations. It works 100% of the time!
 // To find door's x position: (building.x + building.width) - (building.width/2) - (door.width/2)
 // To find door's y position: (building.y + building.height) - door.height
-// Instead of doing the work by yourself, you can use the the necessary functions from the usefulFunctions file
+// Instead of doing the work by yourself, you can use the the necessary functions from the usefulFunctions file (Currently Not Ready For Use)
 
 // If inside a building, the door's x and y position is the same as the characters
 // This means the door's x and y position are both 288
-export const doors = [
-    new Door({ id: 1, color: "yellow", x: doorXPos(0, home1.width, 64), y: doorYPos(0, home1.height, 64), width: 64, height: 64, goesTo: world2 }),
-    new Door({ id: 2, color: "yellow", x: doorXPos(384, home1.width, 64), y: doorYPos(0, home1.height, 64), width: 64, height: 64, goesTo: world2 }),
-    new Door({ id: 3, color: "yellow", x: doorXPos(768, home1.width, 64), y: doorYPos(0, home1.height, 64), width: 64, height: 64, goesTo: world2 }),
-    new Door({ id: 4, color: "yellow", x: doorXPos(1152, home1.width, 64), y: doorYPos(0, home1.height, 64), width: 64, height: 64, goesTo: world2 }),
-];
+// export const doors = [
+//     new Door({ id: 1, color: "yellow", x: doorXPos(0, home1.width, 64), y: doorYPos(0, home1.height, 64), width: 64, height: 64, goesTo: world2 }),
+//     new Door({ id: 2, color: "yellow", x: doorXPos(384, home1.width, 64), y: doorYPos(0, home1.height, 64), width: 64, height: 64, goesTo: world2 }),
+//     new Door({ id: 3, color: "yellow", x: doorXPos(768, home1.width, 64), y: doorYPos(0, home1.height, 64), width: 64, height: 64, goesTo: world2 }),
+//     new Door({ id: 4, color: "yellow", x: doorXPos(1152, home1.width, 64), y: doorYPos(0, home1.height, 64), width: 64, height: 64, goesTo: world2 }),
+// ];

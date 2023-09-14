@@ -14,6 +14,7 @@ export class Character {
         }
         this.color = color;
         this.move = true;
+        this.speed = 3;
     }
     draw() {
         ctx.fillStyle = this.color;
@@ -47,20 +48,20 @@ export class Character {
             else {
                 if (world.tiles !== undefined) {
                     world.tiles.forEach(tile => {
-                        tile.pos.y += 1;
+                        tile.pos.y += this.speed;
                     })
                 }
                 if (world.buildings !== undefined) {
                     world.buildings.forEach(building => {
-                        building.pos.y += 1;
+                        building.pos.y += this.speed;
                     })
                 }
                 if (world.doors !== undefined) {
                     world.doors.forEach(door => {
-                        door.pos.y += 1;
+                        door.pos.y += this.speed;
                     })
                 }
-                world.background.pos.y += 1;
+                world.background.pos.y += this.speed;
             }
         }
         else if (buttons.s.pressed && this.move) {
@@ -88,20 +89,20 @@ export class Character {
             else {
                 if (world.tiles !== undefined) {
                     world.tiles.forEach(tile => {
-                        tile.pos.y -= 1;
+                        tile.pos.y -= this.speed;
                     })
                 }
                 if (world.buildings !== undefined) {
                     world.buildings.forEach(building => {
-                        building.pos.y -= 1;
+                        building.pos.y -= this.speed;
                     })
                 }
                 if (world.doors !== undefined) {
                     world.doors.forEach(door => {
-                        door.pos.y -= 1;
+                        door.pos.y -= this.speed;
                     })
                 }
-                world.background.pos.y -= 1;
+                world.background.pos.y -= this.speed;
             }
         }
         else if (buttons.a.pressed && this.move) {
@@ -129,20 +130,20 @@ export class Character {
             else {
                 if (world.tiles !== undefined) {
                     world.tiles.forEach(tile => {
-                        tile.pos.x += 1;
+                        tile.pos.x += this.speed;
                     })
                 }
                 if (world.buildings !== undefined) {
                     world.buildings.forEach(building => {
-                        building.pos.x += 1;
+                        building.pos.x += this.speed;
                     })
                 }
                 if (world.doors !== undefined) {
                     world.doors.forEach(door => {
-                        door.pos.x += 1;
+                        door.pos.x += this.speed;
                     })
                 }
-                world.background.pos.x += 1;
+                world.background.pos.x += this.speed;
             }
         }
         else if (buttons.d.pressed && this.move) {
@@ -170,20 +171,20 @@ export class Character {
             else {
                 if (world.tiles !== undefined) {
                     world.tiles.forEach(tile => {
-                        tile.pos.x -= 1;
+                        tile.pos.x -= this.speed;
                     })
                 }
                 if (world.buildings !== undefined) {
                     world.buildings.forEach(building => {
-                        building.pos.x -= 1;
+                        building.pos.x -= this.speed;
                     })
                 }
                 if (world.doors !== undefined) {
                     world.doors.forEach(door => {
-                        door.pos.x -= 1;
+                        door.pos.x -= this.speed;
                     })
                 }
-                world.background.pos.x -= 1;
+                world.background.pos.x -= this.speed;
             }
         }
     }

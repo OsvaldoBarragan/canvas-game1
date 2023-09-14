@@ -11,10 +11,10 @@ export class Building {
             x: x,
             y: y
         }
-        this.width = image.width;
-        this.height = image.height;
     }
     draw() {
+        this.width = this.image.width;
+        this.height = this.image.height;
         ctx.drawImage(this.image, this.pos.x, this.pos.y);
     }
     update() {
