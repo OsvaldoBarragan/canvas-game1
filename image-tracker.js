@@ -4,6 +4,9 @@
 export const home1 = new Image();
 home1.src = "./Images/buildings/home1.png";
 
+export const train_station1 = new Image();
+train_station1.src = "./Images/buildings/train_station1.png";
+
 // Export Character Images Here
 // Export Tile Images Here
 export const grass1 = new Image();

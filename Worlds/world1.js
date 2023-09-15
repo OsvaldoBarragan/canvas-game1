@@ -3,7 +3,7 @@ import { Character } from "./../Classes/character.js";
 import { Building } from "./../Classes/building.js";
 import { Door } from "./../Classes/door.js";
 import { Tile } from "./../Classes/tile.js";
-import { home1 } from "./../image-tracker.js";
+import { home1, train_station1 } from "./../image-tracker.js";
 import { doorXPos, doorYPos, drawBuildings } from "./../usefulFunctions.js";
 import * as world2 from "./world2.js";
 
@@ -36,12 +36,13 @@ export const character = new Character({
 });
 
 export const buildings = [
-    new Building({ id: 1, image: home1, x: 0, y: 0}),
-    new Building({ id: 2, image: home1, x: 320, y: 0 }),
+    // new Building({ id: 1, image: home1, x: 0, y: 0}),
+    // new Building({ id: 2, image: home1, x: 320, y: 0 }),
     new Building({ id: 3, image: home1, x: 640, y: 0 }),
     new Building({ id: 4, image: home1, x: 64, y: 1088 }),
     new Building({ id: 5, image: home1, x: 768, y: 1088 }),
     new Building({ id: 6, image: home1, x: 1088, y: 1088 }),
+    new Building({ id: 7, image: train_station1, x: 0, y: -128 }),
 ];
 
 
@@ -53,6 +54,6 @@ export const buildings = [
 // If inside a building, the door's x and y position is the same as the characters
 // This means the door's x and y position are both 288
 export const doors = [
-    new Door({ id: 1, color: "yellow", x: 128, y: 256, width: 64, height: 64, goesTo: world2 }),
-    new Door({ id: 2, color: "yellow", x: 192, y: 1344, width: 64, height: 64, goesTo: world2 }),
+    new Door({ id: 1, color: "yellow", x: 192, y: 1344, width: 64, height: 64, goesTo: world2 }),
+    new Door({ id: 2, color: "blue", x: 288, y: 256, width: 64, height: 64, goesTo: world2 }),
 ];
